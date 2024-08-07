@@ -17,15 +17,15 @@ const StopWatch = () => {
   useEffect(() => {
     if (isRuning) {
       console.log("add setintrval");
-      const idInterval = setInterval(() => {
+      const idInterval = setTimeout(() => {
         setTime((time) => addSeconds(time, 1));
       }, 1000);
       return () => {
-        clearInterval(idInterval);
+        clearTimeout(idInterval);
         console.log("clear intrval");
       };
     }
-  }, [isRuning]);
+  }, [isRuning, time]);
 
   return (
     <div>
