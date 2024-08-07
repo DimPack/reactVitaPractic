@@ -13,6 +13,13 @@ const StopWatch = () => {
     setTime(new Date(0, 0, 0, 0, 0, 0, 0));
     setIsRuning(false);
   };
+  
+  useEffect(() => {
+    
+    return () => {
+        
+    };
+  }, []);
 
   useEffect(() => {
     if (isRuning) {
