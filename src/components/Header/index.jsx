@@ -2,7 +2,7 @@ import { useContext } from "react";
 import cx from "classnames";
 
 import {WbSunny, NightsStay} from '@mui/icons-material'
-// import WbSunnyIcon from "@mui/icons-material/WbSunny";
+// import WbSunnyIcon from "@mui/icons-material/WbSunny"; 
 // import NightsStayIcon from "@mui/icons-material/NightsStay";
 import styles from "./Header.module.scss";
 import { UserContext, ThemeContext } from "../../context";

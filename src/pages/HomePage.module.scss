@@ -1,0 +1,14 @@
+@use "/src/assets/common/styles/templates" as *;
+.light {
+  @extend %light;
+}
+
+.dark {
+  @extend %dark;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
