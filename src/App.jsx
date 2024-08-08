@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserContext, ThemeContext } from "./context";
-
 import HomePage from "./pages/HomePage";
 import Counter from "./components/Counter/index";
 import Header from "./components/Header/index";
+import CONSTANTS from "./constants";
+
+const { THEME } = CONSTANTS;
 
 function App() {
   const [user] = useState({
@@ -12,7 +14,7 @@ function App() {
     login: "max",
     avatar: "/images/defava.png",
   });
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(THEME.LIGHT);
   return (
     <ThemeContext.Provider value={[theme, setTheme]}>
       <UserContext.Provider value={user}>

@@ -1,3 +1,4 @@
+@use "/src/assets/common/styles/templates" as *;
 .header {
   display: flex;
   justify-content: space-between;
@@ -10,4 +11,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.light {
+  @extend %light;
+}
+
+.dark {
+  @extend %dark;
 }
