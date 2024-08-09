@@ -10,6 +10,12 @@ const NavMenu = () => {
         <li>
           <NavLink to="/counter">Counter</NavLink>
         </li>
+        <li>
+          <NavLink to="/books">Books</NavLink>
+        </li>
+        <li>
+          <NavLink to="/events">Events</NavLink>
+        </li>
       </ul>
     </nav>
   );

@@ -24,10 +24,6 @@ const Header = () => {
     setText(value);
   }, [setText]);
 
-  const handleLook = useCallback(() => {
-    console.log(text);
-  }, [text]);
-
   useEffect(() => {
     console.log("create function handleInput");
   }, [handleInput]);
@@ -47,7 +43,6 @@ const Header = () => {
         <img className={styles.avatar} src={avatar} alt="avatar" />
       </span>
       <input value={text} onChange={handleInput} />
-      <button onClick={handleLook}>log value</button>
     </header>
   );
 };
