@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react";
 import EventR from "./EventR";
+import { getEvents } from "../../api";
+import useDataLoad from "../../hooks/useDataLoad";
 
 const EventsReal = () => {
-  const [events, setEvents] = useState([]);
-  const [isPending, setIsPending] = useState(false);
-  const [error, setError] = useState(null);
-  
-  useEffect(() => {
-    setIsPending(true);
-    fetch("/data/events.json")
-      .then((response) => response.json())
-      .then((data) => setEvents(data))
-      .catch((error) => setError(error))
-      .finally(() => setIsPending(false));
-  }, []);
-
+  const { data: events, isPending, error } = useDataLoad(getEvents);
   const showEvents = (event) => <EventR key={event.id} eventR={event} />;
 
   if (isPending) {
