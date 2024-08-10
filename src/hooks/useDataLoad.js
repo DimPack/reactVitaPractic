@@ -5,14 +5,16 @@ function useDataLoad(getData) {
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    setIsPending(true);
-    getData()
-      .then((data) => setData(data))
-      .catch((error) => setError(error))
-      .finally(() => setIsPending(false));
-  }, //eslint-disable-next-line
-  []);
+  useEffect(
+    () => {
+      setIsPending(true);
+      getData()
+        .then((data) => setData(data))
+        .catch((error) => setError(error))
+        .finally(() => setIsPending(false));
+    }, //eslint-disable-next-line
+    []
+  );
   return {
     data,
     isPending,
