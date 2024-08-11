@@ -1,8 +1,16 @@
 import { NavLink } from "react-router-dom";
+import cx from "classnames";
+import CloseIcon from "@mui/icons-material/Close";
+import styles from "./NavMenu.module.scss";
 
-const NavMenu = () => {
+const NavMenu = (props) => {
+  const {
+    stateMenu: [isMenuOpen, setIsMenuOpen],
+  } = props;
+  const classNames = cx(styles.nav, { [styles.openMenu]: isMenuOpen });
   return (
-    <nav>
+    <nav className={classNames}>
+      <CloseIcon className={styles.close} onClick={()=>setIsMenuOpen(false)}/>
       <ul>
         <li>
           <NavLink to="/">Home</NavLink>

@@ -1,7 +1,7 @@
 @use "/src/assets/common/styles/templates" as *;
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 .avatar {
@@ -19,4 +19,9 @@
 
 .dark {
   @extend %dark;
+}
+.open {
+  margin-left: 20px;
+  margin-right: auto;
+  cursor: pointer;
 }

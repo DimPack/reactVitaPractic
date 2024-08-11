@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect, useCallback } from "react";
 import cx from "classnames";
 
-import { WbSunny, NightsStay } from "@mui/icons-material";
+import { WbSunny, NightsStay, Menu } from "@mui/icons-material";
 import styles from "./Header.module.scss";
 import { UserContext, ThemeContext } from "../../context";
 import NavMenu from "../NavMenu";
@@ -10,6 +10,7 @@ import CONSTANTS from "../../constants";
 const { THEME } = CONSTANTS;
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [text, setText] = useState("search");
 
   const { login, avatar } = useContext(UserContext);
@@ -34,7 +35,8 @@ const Header = () => {
   });
   return (
     <header className={classNames}>
-      <NavMenu />
+      <Menu className={styles.open} onClick={() => setIsMenuOpen(true)}/>
+      <NavMenu stateMenu={[isMenuOpen, setIsMenuOpen]}/>
       <button onClick={handleTheme}>
         {theme === THEME.LIGHT ? <NightsStay /> : <WbSunny />}
       </button>
