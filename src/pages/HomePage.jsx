@@ -2,8 +2,10 @@ import { useContext } from "react";
 import cx from "classnames";
 import styles from "./HomePage.module.scss";
 import { ThemeContext } from "../context";
-import StopWatch from "../components/StopWatch/index";
+import Chat from '../components/Chat/index';
+// import StopWatch from "../components/StopWatch/index";
 import CONSTANTS from "../constants";
+
 
 const { THEME } = CONSTANTS;
 
@@ -17,7 +19,8 @@ const HomePage = () => {
 
   return (
     <section className={classNames}>
-      <StopWatch />
+      {/* <StopWatch /> */}
+      <Chat />
     </section>
   );
 };
