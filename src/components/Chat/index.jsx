@@ -1,6 +1,8 @@
 import { useReducer, useEffect } from "react";
+import { getChat } from '../../api';
 import reducer from "./reducer";
 import TYPES from "./actionTypes";
+
 
 
 const Chat = () => {
@@ -13,8 +15,7 @@ const Chat = () => {
 
   useEffect(() => {
     dispatch({ type: TYPES.DATA_LOAD_PENDING });
-    fetch("/data/chat.json")
-      .then((response) => response.json())
+    getChat()
       .then((data) => dispatch({ type: TYPES.DATA_LOAD_SUCCESS, payload: data }))
       .catch((error) => dispatch({ type: TYPES.DATA_LOAD_ERORR, payload: error }));
   }, []);
