@@ -21,9 +21,12 @@ const Header = () => {
     setTheme(isLightTheme ? THEME.DARK : THEME.LIGHT);
   }, [isLightTheme, setTheme]);
 
-  const handleInput = useCallback(({ target: { value } }) => {
-    setText(value);
-  }, [setText]);
+  const handleInput = useCallback(
+    ({ target: { value } }) => {
+      setText(value);
+    },
+    [setText]
+  );
 
   useEffect(() => {
     console.log("create function handleInput");
@@ -35,8 +38,14 @@ const Header = () => {
   });
   return (
     <header className={classNames}>
-      <Menu className={styles.open} onClick={() => setIsMenuOpen(true)}/>
-      <NavMenu stateMenu={[isMenuOpen, setIsMenuOpen]}/>
+      <Menu
+        className={styles.open}
+        onClick={(event) => {
+          event.stopPropagation();
+          setIsMenuOpen(true);
+        }}
+      />
+      <NavMenu stateMenu={[isMenuOpen, setIsMenuOpen]} />
       <button onClick={handleTheme}>
         {theme === THEME.LIGHT ? <NightsStay /> : <WbSunny />}
       </button>
